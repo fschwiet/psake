@@ -1,0 +1,17 @@
+
+To configure the remote task client, which calls invoke-remotetask:
+
+run:  set-executionpolicy unrestricted
+run: enable-psremoting, 
+  (sets up the remoting service, enables remoting listener, opens firewall)
+remove the firewall rule "Windows Remote Management (HTTP-In)"
+  (prevents other machines from connecting to you)
+run: Set-Item WSMan:\localhost\Client\TrustedHosts *
+  (allows you to connect to any machine)
+
+
+
+To configure the remote task host, where tasks will be run:
+
+1. Install an OS
+2. Set UAC to "never notify"
