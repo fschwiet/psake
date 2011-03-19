@@ -1,0 +1,13 @@
+using remoting, call LogonUser  / (later CloseHandle)
+
+given that handle, call CreateProcessAsUser. 
+  takes a STARTUPINFO
+    - dwFlags & STARTF_USESTDHANDLES
+    - use GetStdHandle(STD_INPUT_HANDLE) to redirect output
+
+Pass in a STARTINFO with the input/output handles as  GetStdHandle(STD_INPUT_HANDLE);
+
+
+CreateProcessAsUser runs powershell ".\psakde.sp1 .\default.ps1 <tasklist> <parameters> <properties>"
+
+
